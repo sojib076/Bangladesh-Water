@@ -47,9 +47,9 @@ const HeroSection = () => {
                                 <SelectValue placeholder="অফিসের ধরণ" />
                             </SelectTrigger>
                             <SelectContent className="h-[">
-                                <SelectItem value="light">অফিসের ধরণ</SelectItem>
-                                <SelectItem value="dark"> ধরণ</SelectItem>
-                                <SelectItem value="system"> ধরণ</SelectItem>
+                                <SelectItem value="light">মন্ত্রণালয়/বিভাগ</SelectItem>
+                                <SelectItem value="dark"> অধিদপ্তর বাতায়ন</SelectItem>
+                                <SelectItem value="system"> বিভাগীয় বাতায়ন</SelectItem>
                             </SelectContent>
                         </Select>
                         <Button className=" ml-2 buttonColors rounded hover:bg-green-500  ">Go</Button>

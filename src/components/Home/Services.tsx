@@ -258,7 +258,12 @@ const Services = () => {
                                 {
                                     service.items.map((item, index) => (
                                         <li key={index} className="
-                                        text-gray-700 text-sm mt-1 flex items-center gap-2 hover:text-green-700">< Check className="text-green-400" />  {item}</li>
+                                        text-gray-700 text-sm mt-1 flex 
+                                        
+                                        items-center gap-2 hover:text-green-700
+                                            hover:scale-110
+                                            smoothAnimation
+                                        ">< Check className="text-green-400" />  {item}</li>
                                     ))
                                 }
                             </ul>
@@ -279,4 +284,4 @@ export default Services;
 
 
 
-// <div className="circle absolute h-10 w-[200px] bottom-[2.5em] right-[2.5em] rounded-full bg-lime-400 group-hover:bg-lime-300 group-hover:scale-[8] duration-500 group-hover:z-10 z-[-1]"></div>
+// 

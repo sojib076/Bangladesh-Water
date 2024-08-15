@@ -14,7 +14,11 @@ const NoticeBoard = () => {
       ];
     return (
         <div className="lg:my-20 my-10 lg:px-10 px-5 relative    ">
-                <img src={bgimage} alt="" className='absolute left-[-1%] lg:bottom-[95%] bottom-[92.7%] lg:w-fit w-[20%]' />
+                <img src={bgimage} alt="" className='absolute left-[-1%] lg:bottom-[95%] bottom-[93%]
+                    md:bottom-[85%]
+                    
+                    md:w-[100px]
+                lg:w-fit w-[20%]' />
                 <h2 className="lg:text-4xl text-xl font-bold text-gray-800 mb-4 text-center">নোটিশ বোর্ড</h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-10">

@@ -51,7 +51,7 @@ const Carousel = React.forwardRef<
       plugins,
       className,
       children,
-      autoScrollInterval = 3000, // Default to 3 seconds
+      autoScrollInterval = 2000, // Default to 3 seconds
       ...props
     },
     ref
