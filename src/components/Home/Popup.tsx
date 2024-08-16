@@ -23,7 +23,7 @@ const Popup: React.FC = () => {
                     setShouldRender(true);
                     setIsVisible(true);
                     localStorage.setItem('popupShown', 'true');
-                    window.removeEventListener('scroll', handleScroll); // Remove the event listener once the popup is shown
+                    window.removeEventListener('scroll', handleScroll);
                 }
             };
 

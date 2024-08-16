@@ -57,7 +57,9 @@ function Footer() {
                 </div>
 
                 <div className="text-center text-black mt-8">
-                    &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+                    &copy; {new Date().getFullYear()} 
+                   
+                        Ministry of Water Resources
                 </div>
             </div>
         </footer>
