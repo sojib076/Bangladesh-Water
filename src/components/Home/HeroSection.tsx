@@ -37,7 +37,9 @@ const HeroSection = () => {
             <div className="relative ">
                 <img src={current} alt="Banner" className="w-full h-96 object-cover
          brightness-50 " />
-                <div className="absolute lg:top-[45%] top-[30%] lg:left-0 left-[5%] lg:transform lg:translate-x-1/2
+                <div className="absolute lg:top-[45%] top-[30%] lg:left-0 left-[5%] 
+                    md:left-[30%]
+                lg:transform lg:translate-x-1/2
                  lg:-translate-y-1/2 text-center">
                     <h1 className="lg:text-6xl text-4xl text-colors-sand-beige font-bold">
                         পানি সম্পদ মন্ত্রণালয়</h1>

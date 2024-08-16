@@ -61,7 +61,7 @@ const Other = () => {
                         </div>
                         <img src="https://mowr.gov.bd/sites/default/files/files/mowr.portal.gov.bd/office_head/cd5856a3_6f55_4e58_95c4_ee9b41441670/WhatsApp-Image-2022-12-26-a.jpg" className='lg:w-[61%]
                         
-                        w-[90%]' alt="" />
+                        w-[90%] md:w-[60%]' alt="" />
                     </div>
                 </div>
 
