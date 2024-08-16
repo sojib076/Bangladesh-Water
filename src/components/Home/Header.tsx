@@ -210,12 +210,8 @@ const Header = () => {
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left">
-                    <div className="py-6">
-
-                        <img src={logo} alt="" />
-
-                    </div>
+                <SheetContent side="left" className="h-[100%] overflow-auto">
+                    
                     <div className="grid gap-2 py-6">
                         {renderMenu(menuItems)}
                     </div>
