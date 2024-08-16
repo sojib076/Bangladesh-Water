@@ -28,7 +28,10 @@ const HeroSection = () => {
         return () => clearInterval(interval);
     }, [current]);
 
+
+
     return (
+        
         <div>
             <Header />
             <div className="relative ">
