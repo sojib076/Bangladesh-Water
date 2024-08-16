@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import { MenuIcon, ChevronRightIcon } from 'lucide-react';
+import { MenuIcon, ChevronRightIcon, SearchIcon } from 'lucide-react';
 import logo from '@/assets/logo.png'
 const Header = () => {
     const menuItems = [
@@ -183,7 +183,7 @@ const Header = () => {
             <div key={index}>
                 {item.subMenu ? (
                     <Collapsible className={`grid gap-4 ${level > 0 ? 'pl-4' : ''}`}>
-                        <CollapsibleTrigger className=" hover:scale-90 mt-2 smoothAnimation flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
+                        <CollapsibleTrigger className=" hover:scale-90 mt-2 smoothAnimation flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90 ">
                             {item.title} <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
                         </CollapsibleTrigger>
                         <CollapsibleContent>
@@ -193,7 +193,9 @@ const Header = () => {
                         </CollapsibleContent>
                     </Collapsible>
                 ) : (
-                    <a href={item.href} className={`flex w-full items-center py-2 ${level > 0 ? 'text-sm' : 'text-lg'} font-semibold`}>
+                    <a href={item.href} className={`flex w-full
+                        hover:scale-90 smoothAnimation
+                     items-center mt-[-5px] ${level > 0 ? 'text-sm' : 'text-lg'} font-semibold text-gray-900`}>
                         {item.title}
                     </a>
                 )}
@@ -203,57 +205,66 @@ const Header = () => {
 
     return (
         <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
-            <Sheet>
-                <SheetTrigger asChild>
-                    <Button variant="outline" size="icon" className="lg:hidden">
-                        <MenuIcon className="h-6 w-6" />
-                        <span className="sr-only">Toggle navigation menu</span>
-                    </Button>
-                </SheetTrigger>
-                <SheetContent side="left" className="h-[100%] overflow-auto">
-                    
-                    <div className="grid gap-2 py-6">
-                        {renderMenu(menuItems)}
-                    </div>
-                </SheetContent>
-            </Sheet>
+        <div className="flex w-full items-center justify-between lg:justify-start">
+            {/* Logo */}
+            <img src={logo} alt="logo" className="w-10 h-10" />
 
-            <div className="flex w-full justify-evenly">
-                <img src={logo} alt="" />
-                <NavigationMenu className="hidden lg:flex">
-                    <div className="py-6">
-
-
-
-                    </div>
-                    <NavigationMenuList>
-                        {menuItems.map((item, index) => (
-                            <NavigationMenuItem key={index}>
-                                {item.subMenu ? (
-                                    <>
-                                        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-                                        <NavigationMenuContent>
-                                            <div className="grid w-[500px] p-2">
-                                                {renderMenu(item.subMenu, 1)}
-                                            </div>
-                                        </NavigationMenuContent>
-                                    </>
-                                ) : (
-                                    <NavigationMenuLink asChild>
-                                        <a
-                                            href={item.href}
-                                            className={`group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none ${item.subMenu ? 'text-sm' : 'text-base'}`}
-                                        >
-                                            {item.title}
-                                        </a>
-                                    </NavigationMenuLink>
-                                )}
-                            </NavigationMenuItem>
-                        ))}
-                    </NavigationMenuList>
-                </NavigationMenu>
+            {/* Search Bar */}
+            <div className="mx-4 w-full max-w-xs lg:max-w-md">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="w-full rounded-lg border border-gray-300 py-2 px-4 focus:outline-none focus:ring focus:ring-blue-500"
+                />
             </div>
-        </header>
+
+            {/* Menu Icon (Mobile) */}
+            <div className="lg:hidden">
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="outline" size="icon">
+                            <MenuIcon className="h-6 w-6" />
+                            <span className="sr-only">Toggle navigation menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="h-[100%] overflow-auto">
+                        <div className="grid gap-2 py-6">
+                            {renderMenu(menuItems)}
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
+
+            {/* Navigation Menu (Desktop) */}
+            <NavigationMenu className="hidden lg:flex w-full justify-end">
+                <NavigationMenuList>
+                    {menuItems.map((item, index) => (
+                        <NavigationMenuItem key={index}>
+                            {item.subMenu ? (
+                                <>
+                                    <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                                    <NavigationMenuContent>
+                                        <div className="grid w-[500px] p-2">
+                                            {renderMenu(item.subMenu, 1)}
+                                        </div>
+                                    </NavigationMenuContent>
+                                </>
+                            ) : (
+                                <NavigationMenuLink asChild>
+                                    <a
+                                        href={item.href}
+                                        className={`group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none`}
+                                    >
+                                        {item.title}
+                                    </a>
+                                </NavigationMenuLink>
+                            )}
+                        </NavigationMenuItem>
+                    ))}
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
+    </header>
     );
 };
 
