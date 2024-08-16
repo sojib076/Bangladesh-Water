@@ -183,7 +183,7 @@ const Header = () => {
             <div key={index}>
                 {item.subMenu ? (
                     <Collapsible className={`grid gap-4 ${level > 0 ? 'pl-4' : ''}`}>
-                        <CollapsibleTrigger className="flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
+                        <CollapsibleTrigger className=" hover:scale-90 mt-2 smoothAnimation flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
                             {item.title} <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
                         </CollapsibleTrigger>
                         <CollapsibleContent>
@@ -237,7 +237,7 @@ const Header = () => {
                                     <>
                                         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
                                         <NavigationMenuContent>
-                                            <div className="grid w-[800px] p-2">
+                                            <div className="grid w-[500px] p-2">
                                                 {renderMenu(item.subMenu, 1)}
                                             </div>
                                         </NavigationMenuContent>
