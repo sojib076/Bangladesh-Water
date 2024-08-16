@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import { MenuIcon, ChevronRightIcon, SearchIcon } from 'lucide-react';
+import { MenuIcon, ChevronRightIcon } from 'lucide-react';
 import logo from '@/assets/logo.png'
 const Header = () => {
     const menuItems = [
@@ -135,6 +135,12 @@ const Header = () => {
                         { "title": "বিভিন্ন মন্ত্রণালয়ে সভা, সেমিনার যোগদানের জন্য প্রতিনিধি", "href": "#" }
                     ]
 
+                },
+                {
+                    "title":"মতামত",
+                    "subMenu":[
+                        { "title": "আপনার জিজ্ঞাসা ও মতামত", "href": "#" },
+                    ]
                 }
 
             ]
@@ -150,17 +156,25 @@ const Header = () => {
         {
             "title": "সভার বিজ্ঞপ্তি",
             "subMenu": [
-              { "title": "সভার বিজ্ঞপ্তি", "href": "#" },
-              { "title": "সভার কার্যবিবরণী", "href": "#" },
+              
+              {
+                "title": "সভার বিজ্ঞপ্তি", "href": "#" 
+                
+              },
+              {
+                title: 'সভার কার্যবিবরণী',
+               
+            },
+           
               
             ]
           },
+
           {
             "title": "ডাউনলোড ",
             "subMenu": [
-              { "title": "স্মরণিকা (বিশ্ব পানি দিবস ২০২৩)", "href": "#" },
-              { "title": "স্মরণিকা (বিশ্ব পানি দিবস ২০২৪)", "href": "#" },
-              { "title": "প্রকাশনাসমূহ", "href": "#" }
+              {"title": "স্মরণিকা (বিশ্ব পানি দিবস ২০২৩)"},
+        
             ]
           },
           {
@@ -178,31 +192,28 @@ const Header = () => {
 
     ];
 
-    const renderMenu = (items: any, level = 0) => (
-        items.map((item: any, index: any) => (
-            <div key={index}>
-                {item.subMenu ? (
-                    <Collapsible className={`grid gap-4 ${level > 0 ? 'pl-4' : ''}`}>
-                        <CollapsibleTrigger className=" hover:scale-90 mt-2 smoothAnimation flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90 ">
-                            {item.title} <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
-                        </CollapsibleTrigger>
-                        <CollapsibleContent>
-                            <div className="-mx-6 grid gap-6 bg-muted p-6">
-                                {renderMenu(item.subMenu, level + 1)}
-                            </div>
-                        </CollapsibleContent>
-                    </Collapsible>
-                ) : (
-                    <a href={item.href} className={`flex w-full
-                        hover:scale-90 smoothAnimation
-                     items-center mt-[-5px] ${level > 0 ? 'text-sm' : 'text-lg'} font-semibold text-gray-900`}>
-                        {item.title}
-                    </a>
-                )}
-            </div>
-        ))
-    );
-
+  const renderMenu = (items: any, level = 0) => (
+    items.map((item: any, index: any) => (
+        <div key={index} className={`flex flex-col ${level > 0 ? 'pl-4' : ''}`}>
+            {item.subMenu ? (
+                <Collapsible className={`grid gap-4`}>
+                    <CollapsibleTrigger className="hover:scale-90 mt-2 smoothAnimation flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
+                        {item.title} <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                        <div className="grid gap-6 bg-muted p-6">
+                            {renderMenu(item.subMenu, level + 1)}
+                        </div>
+                    </CollapsibleContent>
+                </Collapsible>
+            ) : (
+                <a href={item.href} className={`flex w-full hover:scale-90 smoothAnimation items-center mt-[-2px]  ${level > 0 ? 'text-sm' : 'text-lg mt-2'} font-semibold text-gray-900 `}>
+                    {item.title}
+                </a>
+            )}
+        </div>
+    ))
+);
     return (
         <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
         <div className="flex w-full items-center justify-between lg:justify-start">
@@ -244,7 +255,7 @@ const Header = () => {
                                 <>
                                     <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="grid w-[500px] p-2">
+                                        <div className="grid w-[900px] p-2">
                                             {renderMenu(item.subMenu, 1)}
                                         </div>
                                     </NavigationMenuContent>
