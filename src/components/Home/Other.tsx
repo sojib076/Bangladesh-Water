@@ -1,10 +1,18 @@
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
 
 
 const Other = () => {
+
+    AOS.init({ duration: 500 ,
+        offset: 200,
+        easing: 'ease-in-sine',
+        once:false
+    });
     const notices = [
         "  ওয়েবমেইল",
         "অভিযোগ প্রতিকার ব্যবস্থা",
@@ -35,11 +43,13 @@ const Other = () => {
         "  https://mowr.gov.bd/sites/default/files/files/mod.portal.gov.bd/page/41732ef3_4108_4549_be07_77bf22484c68/internal_eservice2.gif"
     ]
     return (
-        <div className="  ">
+        <div className=" overflow-hidden  ">
             <h2 className="lg:text-4xl text-xl font-bold text-gray-800   text-center mb-  "> আমাদের গর্ব</h2>
             <hr className="bg-green-400 h-1 lg:w-[93.5%] w-[82%] mx-auto " />
             <div className="grid grid-cols-0 grid-rows-0 gap-4 p-4 md:grid-cols-4 md:grid-rows-4 lg:grid-cols-5 lg:grid-rows-6 ">
-                <div className=" text-black col-span-2 row-span-3    bg-white  shadow-lg rounded-lg  flex items-center justify-center">
+                <div
+              data-aos="fade-right"
+                className=" text-black col-span-2 row-span-3    bg-white  shadow-lg rounded-lg  flex items-center justify-center">
                     <div className='flex lg:flex-row flex-col-reverse gap-2 lg:justify-center items-center lg:text-left  text-center'>
                         <div className='lg:ml-2'><h1 className='lg:text-sm text-[12px]  '>মাননীয় প্রধান উপদেষ্টা</h1>
                             <p className='lg:text-xl text-[15px] '>ড. মুহাম্মদ ইউনূস</p></div>
@@ -47,7 +57,9 @@ const Other = () => {
                         lg:w-[62%] mt-[-12%] lg:mt-0 w-[98%] md:mt-[-1%] '  alt="" />
                     </div>
                 </div>
-                <div className=" text-black col-span-2 row-span-3 col-start-3    bg-white  shadow-lg rounded-lg  flex items-center justify-center">
+                <div
+                  data-aos="fade-left"
+                className=" text-black col-span-2 row-span-3 col-start-3    bg-white  shadow-lg rounded-lg  flex items-center justify-center">
                     <div className='
                     h-[260px]
                     lg:h-auto
@@ -59,13 +71,15 @@ const Other = () => {
                                 ক্যারিয়ার সিভিল সার্ভেন্ট জনাব নাজমুল আহসান ১৫ ডিসেম্বর ২০...
                             </p>
                         </div>
-                        <img src="https://mowr.gov.bd/sites/default/files/files/mowr.portal.gov.bd/office_head/cd5856a3_6f55_4e58_95c4_ee9b41441670/WhatsApp-Image-2022-12-26-a.jpg" className='lg:w-[61%]
+                        <img 
+                        
+                        src="https://mowr.gov.bd/sites/default/files/files/mowr.portal.gov.bd/office_head/cd5856a3_6f55_4e58_95c4_ee9b41441670/WhatsApp-Image-2022-12-26-a.jpg" className='lg:w-[61%]
                         
                         w-[90%] md:w-[60%]' alt="" />
                     </div>
                 </div>
 
-                <div className="col-span-4 row-span-3 col-start-1 row-start-4
+                <div data-aos="fade-up" className="col-span-4 row-span-3 col-start-1 row-start-4
                 bg-white  shadow-lg rounded-lg   text-white 
                 lg:p-10 p-5
                  ">
@@ -81,7 +95,7 @@ const Other = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row-span-6 col-start-5 row-start-1     bg-white  shadow-lg rounded-lg  lg:h-auto h-fit pb-2  lg:block hidden ">
+                <div    className="row-span-6 col-start-5 row-start-1     bg-white  shadow-lg rounded-lg  lg:h-auto h-fit pb-2  lg:block hidden  " data-aos="fade-up" >
                     <img src="https://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/files/a3cbb305_511d_4266_bf35_74cfcfd2be9d/hotline_v.2_bn.png"
 
 
