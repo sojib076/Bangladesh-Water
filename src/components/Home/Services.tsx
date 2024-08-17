@@ -228,8 +228,9 @@ const Services = () => {
                             <ul className="  flex flex-col justify-between px-5 pt-2 ">
                                 {
                                       service.items.map((item, index) => (
-                                        <li key={index} className="
-                                        text-gray-700 text-sm mt-1 flex items-center gap-2 hover:text-green-700">< Check className="text-green-400" />  {item}</li>
+                                        <li key={index} className=" hover:scale-110 smoothAnimation
+                                        text-gray-700 text-sm mt-1 flex items-center gap-2 hover:text-green-700">
+                                            < Check className="text-green-400  " />  {item}</li>
                                     ))
                                 }
                             </ul>
